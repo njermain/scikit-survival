@@ -315,7 +315,7 @@ def ipc_weights(event, time):
     if event.all():
         return numpy.ones(time.shape[0])
 
-    unique_time, p = kaplan_meier_estimator(event, time, reverse=True)
+    unique_time, p = kaplan_meier_estimator(event, time, reverse=False)
 
     idx = numpy.searchsorted(unique_time, time[event])
     Ghat = p[idx]
